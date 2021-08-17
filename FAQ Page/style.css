@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
+
+:root {
+  --background: #0b1a42;
+  --text: #212121;
+  --btn: #8f4486;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Rubik", sans-serif;
+  overflow-x: hidden;
+  color: var(--text);
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
+}
+
+.btn {
+  background-color: var(--btn);
+  padding: 7px 12px;
+  border-radius: 4px;
+  border: hidden;
+  margin: 5px;
+}
+
+.box {
+  width: 320px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.faq_question {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.faq_question span {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text);
+}
+
+strong {
+  cursor: pointer;
+}
+
+.faq_answer {
+  display: none;
+  padding: 20px;
+}
+
+.show_text {
+  display: flex;
+}
+
+.hr {
+  width: 80% style;
+  margin: auto;
+  text-decoration: solid;
+}

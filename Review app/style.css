@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,300&display=swap");
+
+:root {
+  --primary-violet: #5b21b6;
+  --dark-color: #1f2937;
+  --text-color: #ffffff;
+  --button-color: #4c1d95;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+  user-select: none;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark-color);
+}
+
+.containers {
+  color: var(--text-color);
+  padding: 40px;
+}
+
+.review-box {
+  margin-top: 25px;
+  background-color: var(--button-color);
+  border-radius: 4px;
+  width: 450px;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  letter-spacing: 5px;
+}
+
+.underline {
+  width: 100px;
+  height: 3px;
+  background-color: turquoise;
+  margin: auto;
+}
+
+.image-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.person-img {
+  width: 100%;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+}
+
+.name {
+  letter-spacing: 5px;
+  margin-top: 5px;
+}
+
+.job {
+  text-transform: uppercase;
+  color: yellow;
+  margin-top: 3px;
+}
+
+.review {
+  margin-top: 5px;
+  line-height: 18px;
+}
+
+.button-container {
+  margin-top: 5px;
+}
+
+.left-btn {
+  cursor: pointer;
+  margin-right: 50px;
+}
+
+.rigth-btn {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 700px) {
+  .containers {
+    width: 100%;
+  }
+
+  .review-box {
+    margin-left: -40px;
+  }
+}

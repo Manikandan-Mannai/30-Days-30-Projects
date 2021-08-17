@@ -1,0 +1,78 @@
+:root {
+  --primary-violet: #5b21b6;
+  --dark-color: #1f2937;
+  --text-color: #ffffff;
+  --button-color: #4c1d95;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: Helvetica, sans-serif;
+  line-height: 1.7;
+  user-select: none;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: var(--dark-color);
+}
+
+.todo-container {
+  color: var(--text-color);
+  text-align: center;
+  margin-top: 30px;
+  width: 400px;
+  padding: 30px;
+  background-color: var(--primary-violet);
+  border-radius: 5px;
+}
+
+.todo-input {
+  border: none;
+  padding: 3px 13px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  padding: 5px 15px;
+  background-color: var(--button-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 150ms ease-in;
+  margin-bottom: 20px;
+}
+
+.btn:hover {
+  background-color: var(--dark-color);
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#paragrap-container p {
+  cursor: pointer;
+  color: var(--text-color);
+  margin-right: 6px;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}

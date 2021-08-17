@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Food Recipe App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+        :root {
+            --primary-violet: #5B21B6;
+            --button-color: #4C1D95;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-color);
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .btn-color {
+            position: relative;
+            background-color: var(--button-color) !important;
+            color: #ffffff;
+            margin-left: -5px;
+            width: 35px;
+            height: 35px;
+            border-top-right-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+            border: none;
+            padding: 0.1rem;
+        }
+
+        input {
+            height: 35px;
+            outline: 0;
+            border: 1px solid var(--primary-violet);
+            border-top-left-radius: 2rem;
+            border-bottom-left-radius: 2rem;
+            padding: 0.5rem;
+            width: 70%;
+        }
+
+        .logo {
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+
+        /* CARDS */
+        #get-recipe {
+            border-radius: 1.5rem;
+            background-color: var(--primary-violet) !important;
+        }
+
+        .card-style {
+            border-radius: 1rem !important;
+            box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.79);
+        }
+
+        /* INGRETIENT */
+        .ingredient {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--primary-violet);
+            padding: 20px;
+            color: var(--text-color);
+            border-radius: 4px;
+        }
+
+        .extra-img {
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        .extra-img-src {
+            width: 100px;
+            border-radius: 50%;
+            left: 50%;
+        }
+
+        .fas {
+            position: absolute;
+            right: 2rem;
+            top: 1rem;
+            cursor: pointer;
+            right: 50%;
+            top: 50%;
+            transform: translate(45%, -50%);
+        }
+
+        .yt-link {
+            color: var(--text-color);
+        }
+
+        /* CARDS */
+        .recipe-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        /* NULL MSG */
+        .null_msg {
+            display: none;
+            margin-top: 10%;
+            color: var(--primary-violet);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="wrapper">
+        <div class="container my-2">
+            <h1 class="logo text-center">Find Meals For Your Ingredient</h1>
+            <div class="search-bar d-flex justify-content-center">
+                <input type="text" placeholder="Enter an Ingredient" id="input_field">
+                <button class="btn-color" id="search_btn"><i class="fas fa-search"></i></button>
+            </div>
+
+            <h3 class="text-center" style="margin-top: 30px; font-weight: 600;">Your Search Results:</h3>
+
+            <main class="recipe-container d-flex flex-wrap justify-content-around">
+                <!-- START RECIPE-CARD -->
+                <div class="card card-style my-3" style="width: 20rem; display: none;">
+                    <img src="./food.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-text text-center">Food Name</h3>
+                        <button class="btn btn-primary d-block border-0 mx-auto" id="get-recipe">Get Recipe</button>
+                    </div>
+                </div>
+                <!-- END RECIPE-CARD -->
+                <h1 class="null_msg">Sorry, we didn't find any meal!</h1>
+            </main>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script>
+        const search_btn = document.getElementById('search_btn');
+        var recipe_container = document.querySelector(".recipe-container");
+
+        search_btn.addEventListener('click', fetchRecipe);
+
+        function fetchRecipe() {
+            var input_field = document.querySelector("#input_field").value.trim();
+            var url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${input_field}`;
+            console.log(input_field);
+
+            fetch(url)
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    let html = " ";
+                    if (data.meals) {
+                        data.meals.forEach(meal => {
+                            html += `
+                    <div class="card card-style my-3" style="width: 20rem;" data-id="${meal.idMeal}">
+                        <img src="${meal.strMealThumb}" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-text text-center">${meal.strMeal}</h3>
+                            <button class="btn btn-primary d-block border-0 mx-auto" class="get-recipe">Get Recipe</button>
+                        </div>
+                        </div>`
+                        })
+                        let a = document.querySelector("#input_field");
+                        a.value = " ";
+                        recipe_container.innerHTML = html;
+                    } else {
+                        var null_msg = document.querySelector(".null_msg");
+                        null_msg.style.display = "block"
+                    }
+
+                });
+        };
+    </script>
+</body>
+
+</html>

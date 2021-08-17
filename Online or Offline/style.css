@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary-violet: #5b21b6;
+  --dark-color: #1f2937;
+  --text-color: #ffffff;
+  --button-color: #4c1d95;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Rubik", sans-serif;
+  overflow-x: hidden;
+  color: var(--text);
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--dark-color);
+}
+
+.btn {
+  background-color: var(--btn);
+  padding: 7px 12px;
+  border-radius: 4px;
+  border: hidden;
+  margin: 5px;
+}
+
+.toaster_div {
+  display: none;
+  position: relative;
+  z-index: 10000;
+  background-color: #fff;
+  width: 300px;
+  height: 100px;
+  border-radius: 8px;
+  padding: 20px;
+  border-left: 5px solid rgb(39, 223, 39);
+  margin: 10px;
+  animation: toast 0.8s ease-in;
+}
+
+.toaster_div_offline {
+  display: none;
+  position: relative;
+  z-index: 10000;
+  background-color: #fff;
+  width: 300px;
+  height: 100px;
+  border-radius: 8px;
+  padding: 20px;
+  border-left: 5px solid rgb(241, 21, 21);
+  margin: 10px;
+  animation: toast 0.8s ease-in;
+}
+
+@keyframes toast {
+  from {
+    left: -350px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+.toaster_div_offline p {
+  margin-top: 15px;
+  opacity: 0.7;
+}
+.toaster_div p {
+  margin-top: 15px;
+  opacity: 0.7;
+}
+
+.disable {
+  display: none;
+}

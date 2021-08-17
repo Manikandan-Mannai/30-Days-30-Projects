@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="https://pbs.twimg.com/media/ET82pzfXQAAniwG.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Tracker | Using Fetch API</title>
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 style="padding: 25px; color: #ffffff;">COVID-19 Tracker</h1>
+    <main class="container">
+        <div class="box-container">
+            <div class="infected boxes">
+                <span class="text-muted">infected</span>
+                <p class="infected-count count">xxxxxx</p>
+                <span class="text-muted" id="dayses1"></span>
+                <p>Number of active cases of COVID-19</p>
+            </div>
+            <div class="Recovered boxes">
+                <span class="text-muted">Recovered</span>
+                <p class="Recovered-count count">xxxxxx</p>
+                <span class="text-muted" id="dayses2"></span>
+                <p>Number of active cases of COVID-19</p>
+            </div>
+            <div class="Deaths boxes">
+                <span class="text-muted">Deaths</span>
+                <p class="Deaths-count count">xxxxxx</p>
+                <span class="text-muted" id="dayses3"></span>
+                <p>Number of active cases of COVID-19</p>
+            </div>
+        </div>
+        <button class="btn">Refresh Data</button>
+    </main>
+    <!-- JAVASCRIPT -->
+    <script src="app.js"></script>
+</body>
+
+</html>

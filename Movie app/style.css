@@ -1,0 +1,136 @@
+:root {
+  --primary-violet: #5b21b6;
+  --dark-color: #1f2937;
+  --text-color: #ffffff;
+  --button-color: #4c1d95;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: Helvetica, sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--dark-color);
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.movie-box {
+  display: inline-block;
+  background-color: var(--primary-violet);
+  border-radius: 3px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  margin: 1.5rem;
+  width: 200px;
+  cursor: pointer;
+}
+
+img {
+  width: 200px;
+  height: 300px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  object-fit: cover;
+}
+
+.movie-details {
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-color);
+  padding: 0.7rem;
+}
+
+span {
+  background-color: var(--dark-color);
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.movie-details h3 {
+  margin: 0;
+}
+
+header {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+.btn {
+  background-color: var(--button-color);
+  color: var(--text-color);
+  padding: 7px 12px;
+  border-radius: 50px;
+  border: none;
+}
+
+input {
+  padding: 7px 12px;
+  border-radius: 50px;
+  border: none;
+}
+
+.overview {
+  background-color: var(--dark-color);
+  color: var(--text-color);
+  padding: 2rem;
+  position: absolute;
+  max-height: 100%;
+  overflow: auto;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transform: translateY(101%);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  transition: transform 0.3s ease-in;
+}
+
+.movie-box:hover .overview {
+  transform: translateY(0);
+}
+
+.overview::-webkit-scrollbar {
+  width: 5px;
+}
+
+.overview::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+  border-radius: 2rem;
+}
+
+.movie-details span.green {
+  color: rgb(39, 189, 39);
+}
+
+.movie-details span.orange {
+  color: orange;
+}
+
+.movie-details span.red {
+  color: rgb(189, 42, 42);
+}
+
+@media screen {
+  .movie-box {
+    margin: 1rem auto;
+  }
+}
